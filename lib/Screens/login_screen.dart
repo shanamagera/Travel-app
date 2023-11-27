@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/semantics.dart';
 import 'package:nairobitravel_app/Screens/Register_screen.dart';
-// import 'package:university_app/Screens/home_screen.dart';
+import 'package:nairobitravel_app/Screens/home_screen.dart';
 
 
 class LoginScreen extends StatefulWidget{
@@ -41,13 +41,10 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Container(
                 width: double.infinity,
-                height: 120,
+                height: 200,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   image: DecorationImage(image: AssetImage('assets/images/login tourist.jpg',)),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.elliptical(60, 60),
-            ),
                 ),
               ),
               SizedBox(height:20),
@@ -121,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fixedSize: Size(300, 40),
                 ),
                 onPressed: () {
-                  // Navigator.of(context).push(MaterialPageRoute(builder:(context) => HomeScreen(),));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => HomeScreen(),));
                   //   // print('Home');
                 }, 
                 child: Text('Login'),

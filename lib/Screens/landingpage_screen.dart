@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Screens/login_screen.dart';
+import 'package:nairobitravel_app/Screens/Register_screen.dart';
 
 class LandingpageScreen extends StatefulWidget{
   @override
@@ -79,8 +80,8 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
                   if(!isTapped){
                     isTapped=true;
                     }
-                  // Navigator.of(context).push(MaterialPageRoute(builder:(context) => HomeScreen(),));
-                  //   // print('Home');
+                  Navigator.of(context).push(MaterialPageRoute(builder:(context) => RegisterScreen(),));
+                    // print('Home');
                 }, 
                 ),
         ],

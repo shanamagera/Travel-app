@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Screens/splash_screen.dart';
+import 'package:nairobitravel_app/Screens/home_screen.dart';
+import 'package:nairobitravel_app/Screens/attractions_screen.dart';
 
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nairobi Travel',
-      home: SplashScreen(),
+      home: AttractionsScreen(),
 
 
       debugShowCheckedModeBanner: false,
