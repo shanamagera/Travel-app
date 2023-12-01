@@ -18,7 +18,7 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
           Container(
             padding: EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 10),
             width: double.infinity,
-            height: 200,
+            height: 500,
             decoration: BoxDecoration(
               color: Colors.black,
               image: DecorationImage(image: AssetImage('assets/images/landingpage.jpg'), fit: BoxFit.cover),

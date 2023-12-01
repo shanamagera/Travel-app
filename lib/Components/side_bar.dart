@@ -3,9 +3,11 @@ import 'package:nairobitravel_app/Screens/attractions_screen.dart';
 import 'package:nairobitravel_app/Screens/activities_screen.dart';
 
 class SideBar extends StatefulWidget{
-  const SideBar({Key? key, required this.height, 
-  required this.width, 
-  // required this.navigator,
+  const SideBar({Key? key, 
+  required this.height, 
+  required this.width,
+  // required this.navigator, 
+  
   }):super(key: key);
 
   final double height;
@@ -23,14 +25,13 @@ class _SideBarState extends State<SideBar> {
     {'title': 'Culture', 'routeName': '/culture'},
   ];
   _onPressed(int index) {
-    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> noti(),));
     Navigator.of(context).pushReplacement(
         MaterialPageRoute<Null>(builder: (BuildContext context) {
       return _children[_currentIndex];
     }));
   }
 
-  int _currentIndex= 1;
+  int _currentIndex= 0;
   final List<Widget> _children = [
     AttractionsScreen(),
     ActivitiesScreen(),
@@ -53,11 +54,14 @@ class _SideBarState extends State<SideBar> {
               return RotatedBox(
                 quarterTurns: 3,
                 child:TextButton(
-                onPressed: () {
+                  onPressed: () {
                   setState(() {
                   _currentIndex= index;
                 });
-                // _onPressed(_currentIndex); 
+                // widget.navigator.currentState!.pushNamed(
+                //   menu[index]['routeName'],
+                // );
+                _onPressed(_currentIndex);
                 },
 
               style: TextButton.styleFrom(minimumSize: const Size(100, 50)), 

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Components/nav_bar.dart';
+import 'package:nairobitravel_app/Screens/attractions_screen.dart';
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -25,9 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: EdgeInsets.only(top:200.0),
             child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(60),
@@ -49,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: linkStyle,
                       recognizer: TapGestureRecognizer()
                       ..onTap=(){
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => AttractionsScreen(),));
                         setState(() {
 
                   });

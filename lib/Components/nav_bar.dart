@@ -9,7 +9,6 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   _onTap(int index) {
-    // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> noti(),));
     Navigator.of(context).pushReplacement(
         MaterialPageRoute<Null>(builder: (BuildContext context) {
       return _children[_currentIndex];

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nairobitravel_app/Components/side_bar.dart';
+import 'package:nairobitravel_app/Screens/activities_screen.dart';
 import 'package:nairobitravel_app/Screens/splash_screen.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
+import 'package:nairobitravel_app/Components/side_bar.dart';
 
 
 void main() {
@@ -17,30 +20,58 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nairobi Travel',
       home: AttractionsScreen(),
+      // initialRoute: '/attractions',
+      // routes: {
+      //   AttractionsScreen.routeName:(context) => AttractionsScreen(),
+      //   ActivitiesScreen.routeName:(context) => const ActivitiesScreen(),
+      // },
 
 
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 10, 185, 121)),
         
       ),
+      // builder: (context, child){
+      //   return _TravelApp(
+      //     navigator: (child!.key as GlobalKey<NavigatorState>),
+      //     child: child,
+      //     );
+      // },
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
+
+
+// class _TravelApp extends StatefulWidget{
+//   const _TravelApp({
+//     Key? key,
+//     required this.navigator,
+//     required this.child
+//   }) : super(key: key);
+
+//   final GlobalKey<NavigatorState> navigator;
+//   final Widget child;
+
+//   @override
+//   State<_TravelApp> createState ()=> _TravelAppState();
+// }
+
+// class _TravelAppState extends State<_TravelApp> {
+//   @override
+//   Widget build(BuildContext context){
+//     double width= MediaQuery.of(context).size.width;
+//     double height= MediaQuery.of(context).size.height;
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       body: Row(
+//         children: [
+//           SideBar(height: height, width: width, navigator: widget.navigator),
+//         Expanded(child: widget.child),
+//       ]
+//       ),
+//     );
+//   }
+// }
 
