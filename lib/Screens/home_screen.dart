@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Components/nav_bar.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
+import 'package:nairobitravel_app/Screens/nairobi national park_screen.dart';
 
 class HomeScreen extends StatefulWidget{
   @override
@@ -35,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 topRight: Radius.circular(60),
               ),
             ),
-            child: Column(
+            
+            child: SingleChildScrollView(
+              child: Column(
               children: [
                 Text('Categories',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
@@ -50,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: linkStyle,
                       recognizer: TapGestureRecognizer()
                       ..onTap=(){
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => AttractionsScreen(),));
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => AttractionsScreen(),));
                         setState(() {
 
                   });
@@ -86,40 +89,48 @@ class _HomeScreenState extends State<HomeScreen> {
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      InkWell(
-                        child: Container(
-                          width: 480,
-                          height: 250,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage('assets/images/nairobi-national-park.jpg')),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(40),
-                              bottomRight: Radius.circular(40),
-                              topLeft: Radius.circular(40),
-                              topRight: Radius.circular(40)
-                              ),
-                              ),
-                              ),
-                              onTap: () {},
-                              ),
-
+                      GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder:(context) => NairobiNationalParkScreen(),));
+                              print('printed');
+                              },
+                              child: Container(
+                                width:400,
+                                height: 250,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(image: AssetImage('assets/images/nairobi-national-park.jpg'), fit: BoxFit.cover),
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  ),
+                                  ),
                       SizedBox(height: 10),
-                      InkWell(
-                        child: Container(
-                        width: 480,
-                        height: 250,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage('assets/images/nairobi national museum.png')),
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40),
-                            topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40)
-                            ),
-                            ),
-                            ),
-                            onTap: () {},
-                              ),
+                      GestureDetector(
+                            onTap: () {
+                              print('printed');
+                              },
+                              child: Container(
+                                width:400,
+                                height: 250,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(image: AssetImage('assets/images/nairobi national museum.png'), fit: BoxFit.cover),
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  ),
+                                  ),
+                      SizedBox(height: 10),
+                      GestureDetector(
+                            onTap: () {
+                              print('printed');
+                              },
+                              child: Container(
+                                width:400,
+                                height: 250,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(image: AssetImage('assets/images/maasai-market.jpg'), fit: BoxFit.cover),
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  ),
+                                  ),
 
                       // InkWell(
                       //    child: Container(
@@ -141,6 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             ),
                     ],
+              ),
                   ),
                 ),
           

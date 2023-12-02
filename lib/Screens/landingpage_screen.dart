@@ -9,7 +9,6 @@ class LandingpageScreen extends StatefulWidget{
 
 class _LandingpageScreenState extends State<LandingpageScreen> {
   bool isPressed=false;
-  bool isTapped=false;
   Widget build(BuildContext context){
   
     return Scaffold(
@@ -47,12 +46,12 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
           SizedBox(height: 20,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: isPressed? Colors.black : Colors.white,
-                  foregroundColor: isPressed? Color.fromRGBO(255, 230, 5, 1) : Colors.black,
+                  backgroundColor: isPressed? Colors.white: Colors.black,
+                  foregroundColor: isPressed? Colors.black : Color.fromRGBO(255, 230, 5, 1),
                   fixedSize: Size(300, 40),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
                 ),
-                child: Text('Sign in'),
+                child: Text('Get Started'),
                 onPressed: () {
                   setState(() {
                     isPressed= !isPressed;
@@ -64,26 +63,7 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
                     // print('Home');
                 }, 
                 ),
-          SizedBox(height: 10,),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: isTapped? Colors.black : Colors.white,
-                  foregroundColor: isTapped? Color.fromRGBO(255, 230, 5, 1) : Colors.black,
-                  fixedSize: Size(300, 40),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-                ),
-                child: Text('Sign up'),
-                onPressed: () {
-                  setState(() {
-                    isTapped= !isTapped;
-                  });
-                  if(!isTapped){
-                    isTapped=true;
-                    }
-                  Navigator.of(context).push(MaterialPageRoute(builder:(context) => RegisterScreen(),));
-                    // print('Home');
-                }, 
-                ),
+          
         ],
       ),
 

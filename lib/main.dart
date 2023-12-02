@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nairobi Travel',
-      home: AttractionsScreen(),
+      home: HomeScreen(),
       // initialRoute: '/attractions',
       // routes: {
       //   AttractionsScreen.routeName:(context) => AttractionsScreen(),

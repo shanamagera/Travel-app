@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
 import 'package:nairobitravel_app/Screens/activities_screen.dart';
+import 'package:nairobitravel_app/Screens/restaurants_screen.dart';
+import 'package:nairobitravel_app/Screens/culture_screen.dart';
 
 class SideBar extends StatefulWidget{
   const SideBar({Key? key, 
@@ -35,6 +37,8 @@ class _SideBarState extends State<SideBar> {
   final List<Widget> _children = [
     AttractionsScreen(),
     ActivitiesScreen(),
+    RestaurantsScreen(),
+    CultureScreen(),
   ];
 
   @override
