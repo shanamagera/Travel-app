@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Components/side_bar.dart';
 import 'package:nairobitravel_app/Screens/activities_screen.dart';
+import 'package:nairobitravel_app/Screens/login_screen.dart';
 import 'package:nairobitravel_app/Screens/splash_screen.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
-import 'package:nairobitravel_app/Components/side_bar.dart';
+import 'package:nairobitravel_app/Components/profile.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'dart:js_interop';
 
 
 void main() {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+// );
+//   Future<void> addDataToFirestore(email,password)async{
+// CollectionReference donationReference= FirebaseFirestore.instance.collection('donations');
+// donationReference.add({'email':"email@gmail.com",'password':12345});
+// }
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nairobi Travel',
-      home: HomeScreen(),
+      home: LoginScreen(),
       // initialRoute: '/attractions',
       // routes: {
       //   AttractionsScreen.routeName:(context) => AttractionsScreen(),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "409819813658",
+    "project_id": "travel-app-ce83a",
+    "storage_bucket": "travel-app-ce83a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409819813658:android:118f0c3dc1ae5b2c7dbea3",
+        "android_client_info": {
+          "package_name": "com.example.nairobitravel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFZtY_AKCuyQV3WuGYtuH24bTgFwuERKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

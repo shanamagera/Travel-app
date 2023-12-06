@@ -3,15 +3,30 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/semantics.dart';
 import 'package:nairobitravel_app/Screens/Register_screen.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
+import 'package:http/http.dart' as http;
+import 'package:nairobitravel_app/Services/globals.dart';
+import 'package:nairobitravel_app/Services/auth_services.dart';
+import 'dart:convert';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'dart:js_interop';
 
 
 class LoginScreen extends StatefulWidget{
   // bool isObscure=true;
   @override
   State<LoginScreen> createState() => _LoginScreenState();
+  // Future<void> addDataToFirestore(email, password)async{
+  //   CollectionReference collectionReference= FirebaseFirestore.instance.collection('Login');
+  //   LoginReference.add({'email':email, 'password':password});
+  // }
+
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+String _email= '';
+String _password='';
+  // final TextEditingController emailController= TextEditingController();
+  // final TextEditingController passwordController= TextEditingController();
   bool showPass = false;
   showPassword(){
     setState(() {
@@ -25,16 +40,21 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
+  showSnackBar(BuildContext context, String text){
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Color.fromARGB(255, 10, 185, 121),
+      content: Text(text),
+      duration: const Duration(seconds: 4),
+      )
+  );
+}
+
   Widget build(BuildContext context){
     TextStyle defaultStyle = TextStyle(color: Colors.grey, fontSize: 15.0);
     TextStyle linkStyle = TextStyle(color: Color.fromARGB(255, 10, 185, 121));
     return Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   toolbarHeight: 50,
-      //   backgroundColor: Color.fromRGBO(10, 185, 121, 1),
-      //   elevation: 0,
-      // ),
       body: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -63,10 +83,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: "Email or Username",
                   border:OutlineInputBorder()
                 ),
+                onChanged: (value) {
+                  _email=value;
+                },
               ),
               ),
-              SizedBox(width: 300, height: 70,
-              child: TextField(
+              SizedBox(
+                width: 300, 
+                height: 70,
+                child: TextField(
                 onTap: showPassword,
                 obscureText: showPass ? false: true,
                 decoration: InputDecoration(
@@ -75,6 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   suffixIcon: Icon(Icons.remove_red_eye),
                   border: OutlineInputBorder(),
                 ),
+                onChanged: (value) {
+                  _password=value;
+                },
               ),
               ), 
               // SizedBox(height: 12),
@@ -117,10 +145,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   primary: Color.fromARGB(255, 10, 185, 121),
                   fixedSize: Size(300, 40),
                 ),
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => HomeScreen(),));
-                  //   // print('Home');
-                }, 
+                onPressed: () async{
+                  if(_email.isNotEmpty && _password.isNotEmpty){
+                     http.Response response=
+                     await AuthServices.login(_email, _password);
+                     Map responseMap=jsonDecode(response.body);
+                      if(response.statusCode == 200) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(BuildContext context) => HomeScreen(),));
+                  showSnackBar(context, 'Successfully Login!Welcome Back');
+                  } else {
+                    errorSnackBar(context, responseMap.values.first);
+                  }
+                  } else {
+                    errorSnackBar(context, 'enter all required fields');
+                  }
+                },
                 child: Text('Login'),
                 ),
                 SizedBox(height: 20),

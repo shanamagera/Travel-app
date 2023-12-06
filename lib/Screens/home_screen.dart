@@ -2,6 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Components/nav_bar.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
+import 'package:nairobitravel_app/Screens/activities_screen.dart';
+import 'package:nairobitravel_app/Screens/restaurants_screen.dart';
+import 'package:nairobitravel_app/Screens/culture_screen.dart';
 import 'package:nairobitravel_app/Screens/nairobi national park_screen.dart';
 
 class HomeScreen extends StatefulWidget{
@@ -40,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SingleChildScrollView(
               child: Column(
               children: [
+                SizedBox(height: 10),
                 Text('Categories',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
                 textAlign: TextAlign.start,
@@ -48,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    SizedBox(width: 1),
                     RichText(text: TextSpan(
                       text: 'Attractions',
                       style: linkStyle,
@@ -63,20 +68,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       text: 'Activities',
                       style: linkStyle,
                       recognizer: TapGestureRecognizer()
-                      ..onTap=(){}
+                      ..onTap=(){
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => ActivitiesScreen(),));
+                      }
                     ),),
                     RichText(text: TextSpan(
                       text: 'Restaurants',
                       style: linkStyle,
                       recognizer: TapGestureRecognizer()
-                      ..onTap=(){}
+                      ..onTap=(){
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => RestaurantsScreen(),));
+                      }
                     ),),
                     RichText(text: TextSpan(
                       text: 'Culture',
                       style: linkStyle,
                       recognizer: TapGestureRecognizer()
-                      ..onTap=(){}
+                      ..onTap=(){
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => CultureScreen(),));
+                      }
                     ),),
+                    SizedBox(width: 1),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -131,23 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   ),
                                   ),
-
-                      // InkWell(
-                      //    child: Container(
-                      //     width: 480,
-                      //     height: 250,
-                      //     decoration: BoxDecoration(
-                      //     image: DecorationImage(image: AssetImage('assets/images/nairobi national museum.png')),
-                      //     borderRadius: BorderRadius.only(
-                      //       bottomLeft: Radius.circular(40),
-                      //       bottomRight: Radius.circular(40),
-                      //       topLeft: Radius.circular(40),
-                      //       topRight: Radius.circular(40)
-                      //       ),
-                      //       ),
-                      //       ),
-                      //       onTap: () {},
-                      //       ),
                             ],
                             ),
                             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nairobitravel_app/Components/profile.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
-// import 'package:university_app/Components/noti.dart';
+import 'package:nairobitravel_app/Components/settings.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -18,7 +19,8 @@ class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     HomeScreen(),
-    // noti(),
+    settings(),
+    Profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -33,14 +35,14 @@ class _NavBarState extends State<NavBar> {
             backgroundColor: Color.fromRGBO(83, 175, 50, 1)),
         // notifications
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
-          label: 'Notifications',
+          icon: Icon(Icons.settings),
+          label: 'Settings',
           backgroundColor: Color.fromRGBO(83, 175, 50, 1),
         ),
         // settings
         BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.person),
+            label: 'Profile',
             backgroundColor: Color.fromRGBO(83, 175, 50, 1)),
       ],
       onTap: (index) {

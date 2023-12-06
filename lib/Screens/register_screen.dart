@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Screens/login_screen.dart';
-// import 'package:flutter/semantics.dart';
+import 'package:http/http.dart' as http;
+import 'package:nairobitravel_app/Services/auth_services.dart';
+import 'package:nairobitravel_app/Services/globals.dart';
+
 
 
 class RegisterScreen extends StatefulWidget{
@@ -11,7 +16,9 @@ class RegisterScreen extends StatefulWidget{
    State<RegisterScreen> createState() => _RegisterScreenState();
 }
 class _RegisterScreenState extends State<RegisterScreen> {
-  // List<User> users=[];
+  String _name = '';
+  String _email = '';
+  String _password = '';
   bool showPass = false;
   showPassword(){
     setState(() {
@@ -44,25 +51,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(width: 300, height: 70,
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "First name",
+                  hintText: "Name",
                   border: OutlineInputBorder()
                 ),
-              ),
-              ),
-              SizedBox(width: 300, height: 70,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Last name",
-                  border: OutlineInputBorder()
-                ),
+                onChanged: (value) {
+                  _name= value;
+                },
               ),
               ), 
               SizedBox(width: 300, height: 70,
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Email",
-                  border: OutlineInputBorder()
+                  border: OutlineInputBorder(),
                 ),
+                onChanged: (value) {
+                  _email=value;
+                },
               ),
               ),
               SizedBox(width: 300, height: 70,
@@ -74,17 +79,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   suffixIcon: Icon(Icons.remove_red_eye),
                   border: OutlineInputBorder()
                 ),
-              ),
-              ),
-              SizedBox(width: 300, height: 100,
-              child: TextField(
-                onTap: showPassword,
-                obscureText: showPass ? false: true,
-                decoration: InputDecoration(
-                  hintText: "Confirm Password",
-                  suffixIcon: Icon(Icons.remove_red_eye),
-                  border: OutlineInputBorder()
-                ),
+                onChanged: (value) {
+                  _password=value;
+                },
               ),
               ),
 
@@ -94,8 +91,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fixedSize: Size(300, 40),
                   primary: Color.fromARGB(255, 10, 185, 121)
                 ),
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => LoginScreen(),));
+                onPressed: () async {
+                  bool emailValid=RegExp(
+                    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+                  .hasMatch(_email);
+                  if (emailValid){
+                    http.Response response=
+                    await AuthServices.register(_name, _email, _password);
+                    Map responseMap=jsonDecode(response.body);
+                    if(response.statusCode==200){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => LoginScreen(),));
+                    } else{
+                      errorSnackBar(context, responseMap.values.first[0]);
+                    }
+                  } else{
+                    errorSnackBar(context, 'email not valid');
+                  }
                 }, 
                 child: Text('Register'),
                 ),

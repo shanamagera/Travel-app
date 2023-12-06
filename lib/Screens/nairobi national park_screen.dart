@@ -9,6 +9,14 @@ class NairobiNationalParkScreen extends StatefulWidget{
 class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
   bool isPressed=false;
   Widget build(BuildContext context){
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            
+          ),
+        ],
+      ),
+    );
   }
   }
