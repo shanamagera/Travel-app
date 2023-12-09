@@ -106,13 +106,40 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.of(context).push(MaterialPageRoute(builder:(context) => NairobiNationalParkScreen(),));
                               print('printed');
                               },
-                              child: Container(
-                                width:400,
-                                height: 250,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assets/images/nairobi-national-park.jpg'), fit: BoxFit.cover),
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                  width:400,
+                                  height: 250,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(image: AssetImage('assets/images/nairobi-national-park.jpg'), fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 200),
+                                      child: Row(
+                                        children: [
+                                          Text('Nairobi National Park',
+                                          style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20
+                                                          ),
+                                                 ),
+                                           SizedBox(width: 60),
+                                           Row(
+                                            children: List.generate(5, (index){
+                                              return Icon(Icons.star,
+                                              color: Color.fromRGBO(255, 230, 5, 1),
+                                                                    );
+                                                              }
+                                                           ),
+                                                       ),
+                                              ],
+                                            ),
+                                    ),
+                                      ],
                                   ),
                                   ),
                       SizedBox(height: 10),
@@ -120,28 +147,84 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () {
                               print('printed');
                               },
-                              child: Container(
-                                width:400,
-                                height: 250,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assets/images/nairobi national museum.png'), fit: BoxFit.cover),
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  ),
+                              child: Stack(
+                                children:[
+                                  Container(
+                                  width:400,
+                                  height: 250,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(image: AssetImage('assets/images/nairobi national museum.png'), fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top:200),
+                                      child: Row(
+                                        children: [
+                                          // SizedBox(height: 400),
+                                          Text('Nairobi National Museum',
+                                          style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20
+                                                          ),
+                                                 ),
+                                           SizedBox(width: 50),
+                                           Row(
+                                            children: List.generate(5, (index){
+                                              return Icon(Icons.star,
+                                              color: Color.fromRGBO(255, 230, 5, 1),
+                                                                    );
+                                                              }
+                                                           ),
+                                                       ),
+                                              ],
+                                            ),
+                                    ),
+                                ],
+                              ),
                                   ),
                       SizedBox(height: 10),
                       GestureDetector(
                             onTap: () {
                               print('printed');
                               },
-                              child: Container(
-                                width:400,
-                                height: 250,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage('assets/images/maasai-market.jpg'), fit: BoxFit.cover),
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  ),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                  width:400,
+                                  height: 250,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(image: AssetImage('assets/images/maasai-market.jpg'), fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top:200),
+                                      child: Row(
+                                        children: [
+                                          // SizedBox(height: 400),
+                                          Text('Nairobi National Museum',
+                                          style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20
+                                                          ),
+                                                 ),
+                                           SizedBox(width: 50),
+                                           Row(
+                                            children: List.generate(5, (index){
+                                              return Icon(Icons.star,
+                                              color: Color.fromRGBO(255, 230, 5, 1),
+                                                                    );
+                                                              }
+                                                           ),
+                                                       ),
+                                              ],
+                                            ),
+                                    ),
+                                ]
+                              ),
                                   ),
                             ],
                             ),

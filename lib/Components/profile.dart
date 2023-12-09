@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
 import 'package:nairobitravel_app/Components/settings.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'dart:js_interop';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
 
   @override
   State<Profile> createState() => _ProfileState();
+  // Future<void> addDataToFirestore(email, password)async{
+  //   CollectionReference collectionReference= FirebaseFirestore.instance.collection('Login');
+  //   LoginReference.add({'email':email, 'password':password});
+  // }
 }
 
 class _ProfileState extends State<Profile> {
+  final TextEditingController nameController= TextEditingController();
+  final TextEditingController emailController= TextEditingController();
+  final TextEditingController passwordController= TextEditingController();
   bool showPass = false;
   showPassword(){
     setState(() {
@@ -86,21 +95,21 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(height: 35),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 3),
                 labelText: 'Full Name',         
               ),
             ),
             SizedBox(height: 40),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 3),
                 labelText: 'Email',         
               ),
             ),
             SizedBox(height: 40),
-            TextField(
+            TextFormField(
               onTap: showPassword,
               obscureText: showPass ? false: true,
               decoration: InputDecoration(

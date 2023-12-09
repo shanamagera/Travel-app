@@ -39,7 +39,9 @@ dependencies:
   firebase_core: ^2.24.0
   cloud_firestore: ^4.13.3
   http: ^1.1.0
-
+  table_calendar: ^3.0.9
+  lottie: ^2.7.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

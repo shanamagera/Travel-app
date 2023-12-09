@@ -6,22 +6,32 @@ import 'package:nairobitravel_app/Screens/splash_screen.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
 import 'package:nairobitravel_app/Components/profile.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'dart:js_interop';
+import 'package:nairobitravel_app/Components/booking_page.dart';
 
 
-void main() {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions.currentPlatform,
-// );
-//   Future<void> addDataToFirestore(email,password)async{
-// CollectionReference donationReference= FirebaseFirestore.instance.collection('donations');
-// donationReference.add({'email':"email@gmail.com",'password':12345});
-// }
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:js_interop';
+
+
+void main() async{
+
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
+  
+
+
+addDataToFirestore();
   runApp(const MyApp());
+}
+Future<void> addDataToFirestore() async{
+CollectionReference profileReference= FirebaseFirestore.instance.collection('profile');
+profileReference.add({'name': 'John Doe','email':"email@gmail.com",'password':12345});
+
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nairobi Travel',
-      home: LoginScreen(),
+      home: SplashScreen(),
       // initialRoute: '/attractions',
       // routes: {
       //   AttractionsScreen.routeName:(context) => AttractionsScreen(),

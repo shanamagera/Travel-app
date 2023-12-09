@@ -19,7 +19,6 @@ class _LandingpageScreenState extends State<LandingpageScreen> {
             width: double.infinity,
             height: 500,
             decoration: BoxDecoration(
-              color: Colors.black,
               image: DecorationImage(image: AssetImage('assets/images/landingpage.jpg'), fit: BoxFit.cover),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40),

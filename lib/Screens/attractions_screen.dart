@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Components/side_bar.dart';
 import 'package:nairobitravel_app/Screens/home_screen.dart';
+import 'package:nairobitravel_app/Screens/nairobi national park_screen.dart';
 
 class AttractionsScreen extends StatefulWidget{
   const AttractionsScreen({
@@ -54,7 +55,7 @@ class _AttractionsScreenState extends State<AttractionsScreen> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              print('printed');
+                              Navigator.of(context).push(MaterialPageRoute(builder:(context) => NairobiNationalParkScreen(),));
                               },
                               child: Container(
                                 width:152,

@@ -7,26 +7,17 @@ import 'package:http/http.dart' as http;
 import 'package:nairobitravel_app/Services/globals.dart';
 import 'package:nairobitravel_app/Services/auth_services.dart';
 import 'dart:convert';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'dart:js_interop';
 
 
 class LoginScreen extends StatefulWidget{
   // bool isObscure=true;
   @override
   State<LoginScreen> createState() => _LoginScreenState();
-  // Future<void> addDataToFirestore(email, password)async{
-  //   CollectionReference collectionReference= FirebaseFirestore.instance.collection('Login');
-  //   LoginReference.add({'email':email, 'password':password});
-  // }
-
 }
 
 class _LoginScreenState extends State<LoginScreen> {
 String _email= '';
 String _password='';
-  // final TextEditingController emailController= TextEditingController();
-  // final TextEditingController passwordController= TextEditingController();
   bool showPass = false;
   showPassword(){
     setState(() {
