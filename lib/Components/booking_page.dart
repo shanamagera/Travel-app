@@ -20,6 +20,8 @@ DateTime _currentDay= DateTime.now();
 int? _currentIndex;
 bool _dateSelected=false;
 bool _timeSelected=false;
+
+
 @override
 Widget build(BuildContext context){
   // Config().init(context);
@@ -96,19 +98,11 @@ Widget build(BuildContext context){
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
               child: ElevatedButton(
-                onPressed: (){
-                  setState(() {
-                    if (_timeSelected && _dateSelected){
-                    } else {
-                      return null;
-                    }
-                  });
-                  Navigator.of(context).push(MaterialPageRoute(builder:(context) => SuccessBooked(),));
-                }, 
+                onPressed: _timeSelected && _dateSelected? () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) => SuccessBooked(),));
+                }: null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromRGBO(83, 175, 50, 1),
-                  // disabledBackgroundColor: Colors.grey,
-                  // disabledForegroundColor: const Color.fromARGB(66, 33, 33, 33),
                 ),
                 child: Text('Book Now')),
             ),

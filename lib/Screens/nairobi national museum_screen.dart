@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:nairobitravel_app/Components/booking_page.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:nairobitravel_app/Screens/attractions_screen.dart';
 
 
-class NairobiNationalParkScreen extends StatefulWidget{
+class NairobiNationalMuseumScreen extends StatefulWidget{
   @override
-  State<NairobiNationalParkScreen> createState() => _NairobiNationalParkScreenState();
+  State<NairobiNationalMuseumScreen> createState() => _NairobiNationalMuseumScreenState();
 }
 
-class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
+class _NairobiNationalMuseumScreenState extends State<NairobiNationalMuseumScreen> {
   bool isPressed=false;
   Widget build(BuildContext context){
     return Scaffold(
@@ -21,7 +22,7 @@ class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
                 width: double.infinity,
                 height: 500,
                 decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/images/Login.jpg'), fit: BoxFit.cover),
+                image: DecorationImage(image: AssetImage('assets/images/nairobi national museum.png'), fit: BoxFit.cover),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(60),
                   bottomRight: Radius.circular(60),
@@ -40,24 +41,26 @@ class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
                 padding: const EdgeInsets.only(top: 400),
                 child: Column(
                   children:[
-                    Text('Nairobi National Park',
+                    Text('Nairobi National Museum',
                        style: TextStyle(
                        color: Colors.white,
                        fontWeight: FontWeight.bold,
-                       fontSize: 40
+                       fontSize: 30
                   ),
                   ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Row(
-                      children: List.generate(5, (index){
-                        return Icon(Icons.star,
-                        color: Color.fromRGBO(255, 230, 5, 1),
-                        );
-                      }
-                                      ),
-                                      ),
-                    ),
+                    RatingBarIndicator(
+                        rating: 4.5,
+                        itemCount: 5,
+                        itemSize: 30,
+                        direction: Axis.horizontal,
+                        unratedColor: Colors.white,
+                        itemPadding: EdgeInsets.only(left: 5),
+                        itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: Color.fromRGBO(255, 230, 5, 1)
+                        ),
+                        ),
+                    
                   ],
                 ),
               ),
@@ -65,25 +68,28 @@ class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
              ],
           ),
           SizedBox(height: 20),
-          Text('A must visit if you’re in Nairobi. It is a unique protected area',
+          Text('The museum showcases the rich Heritage of Kenya with four distinct',
           textAlign: TextAlign.left,
           ),
-          Text('located just outside the bustling city of Nairobi, Kenya. It is',
+          Text('themes representing the Culture, Nature, History and Contemporary',
           textAlign: TextAlign.left,
           ),
-          Text('the only national park in the world located within a capital',
+          Text('Art of Kenya. Other attractions within the compound include the',
           textAlign: TextAlign.left,
           ),
-          Text('city.The park covers an area of approximately 117 square',
+          Text('Snake Park and Botanical Gardens as well as a State of the',
           textAlign: TextAlign.left,
           ),
-          Text('kilometers, and is home to a wide range of wildlife, including',
+          Text('Art Auditorium that occasionally hosts concerts, film',
           textAlign: TextAlign.start,
           ),
-          Text('lions, leopards, cheetahs, giraffes, buffaloes, zebras,',
+          Text('shows and other events.Dining and shopping facilities',
           textAlign: TextAlign.left,
           ),
-          Text('and more than 400 species of birds.',
+          Text('await you after your tour with us in our commercial',
+          textAlign: TextAlign.left,
+          ),
+          Text('wing.',
           textAlign: TextAlign.left,
           ),
           SizedBox(height: 10),
@@ -108,7 +114,7 @@ class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
               size: 60,
               ),
               SizedBox(width: 10),
-              Text('6 am - 6.30 pm',
+              Text('8 am - 6.30 pm',
               style: TextStyle(
                 fontWeight: FontWeight.w800,
               ),),
@@ -135,7 +141,7 @@ class _NairobiNationalParkScreenState extends State<NairobiNationalParkScreen> {
                         )),
                   ),
                   onPressed: (){}, 
-                  child: Text('\$60.00',
+                  child: Text('\$50.00',
                   style: TextStyle(
                     fontSize: 14,
                     color: Color.fromRGBO(83, 175, 50, 0.7),

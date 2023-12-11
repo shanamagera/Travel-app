@@ -65,7 +65,10 @@ class _SideBarState extends State<SideBar> {
                 // widget.navigator.currentState!.pushNamed(
                 //   menu[index]['routeName'],
                 // );
+                
                 _onPressed(_currentIndex);
+        
+                
                 },
 
               style: TextButton.styleFrom(minimumSize: const Size(100, 50)), 
@@ -75,7 +78,7 @@ class _SideBarState extends State<SideBar> {
                   fontWeight: (index == _currentIndex)
                   ? FontWeight.bold
                   : FontWeight.bold,
-                  color: (index == _currentIndex)
+                  color: _currentIndex == index
                   ? Color.fromRGBO(255, 230, 5, 1)
                   : Colors.white,
                   letterSpacing: 2,
